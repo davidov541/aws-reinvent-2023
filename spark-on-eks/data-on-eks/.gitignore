@@ -1,0 +1,4 @@
+#Don't remove these
+infra/terraform/.terraform/
+infra/terraform/backend.tf
+.git/
