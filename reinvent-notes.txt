@@ -1,0 +1,38 @@
+Spark for EKS
+	~60% of data teams using K8s? Study from 2022 from Data on K8S Group
+	Data on EKS (DoEKS) OSS project from AWS
+		Reference Architectures
+		IaC Templates
+		Best Practices
+		Sample Test Code
+	Internal Custom Terraform Providers
+		Example: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest
+		Hooks into GitHub/Azure DevOps repo? Needs more investigation
+		This method also appears to have some simplified ways of setting up resources: https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest
+	Using AWS Cloud9 (or other Cloud IDE) may help solve some hesitancy to get into source code
+	There are some tools like KubeCost and Grafana that are easy to set up to monitor EKS clusters.
+		A good amount of configuration required, but using boilerplate may work here
+	There is a gitSync tag in the airflow YAML file which allows for synchronization automatically between a git repo and Airflow. This can be used to deploy DAGs to Airflow, but would it work for multiple teams to one instance?
+		Sounds like no. The answer they propose is a root repo with submodules that pull from other repos: https://github.com/apache/airflow/discussions/19381
+		Another answer in there is to set up S3 sync and then just have steps to upload the DAGs into a common S3 bucket for use
+United Airlines with DocumentDB
+	Support for Elastic Clusters (PaaS instead of IaaS)
+	Can trigger Lambda functions when DocumentDB records are changed
+	Structure of talk is updating new features of product, and then client testimonial at 20 mins in
+	Background -> Why -> Architecture -> Challenges/Solutions
+	Applications read/write with DocumentDB. 
+		MSK topics used between Mainframe and DocumentDB
+		Aurora also populated from MSK for order history for analytics
+Data Catalog
+	Data Governance should include security around data
+	Data Catalogs help Data Governance to determine what data is available and where
+	Technical Catalog - Think Hive Metastore (Columns, Location, Names, etc)
+		AWS Glue Data Catalog is AWS' solution here
+	Business Catalog - Enhances metadata (What does a column name mean? etc)
+		Amazon DataZone is AWS' solution here
+	DataZone also has ability to federate access (request access, with approval process built-in)
+	Verdict: DataZone is pretty interesting with its ability to request and provide access to datasets, but it is still not there, and will likely be AWS-specific only unless vendors decide to support.
+	No current support for service accounts as consumers, so access is only for ad-hoc queries
+		Work with AWS Glue is on the roadmap for this use case.
+		There is also an API that vendors can implement in order to be both producers and consumers
+		
