@@ -35,4 +35,49 @@ Data Catalog
 	No current support for service accounts as consumers, so access is only for ad-hoc queries
 		Work with AWS Glue is on the roadmap for this use case.
 		There is also an API that vendors can implement in order to be both producers and consumers
-		
+Pragmatic Python
+	Technologies:
+		mkdocs-material
+		pytest
+		Pydantic
+		Powertools for AWS Lambda
+	Common stages:
+		Project Setup
+		Pre-Commit Check
+		Pre-PR
+		PR Checks
+	Serverless Project:
+		IaC
+		Domain Code
+		Tests
+		Readiness (Secondary Requirement Work such as Reliability/Performance/Cost Optimization)
+	Devs should own all four of these parts all the way through the lifecycle
+	Architectural Layers helps split things up
+		Example: Handler vs Domain
+		This would allow easy unit testing for domain logic, separates it from the plumbing
+		May be worth splitting all integration code out of the domain layer into Integration layer
+		This can make testing easier, and switching infrastructure decisions (DynamoDB vs Aurora)
+	Goal should be to never leave the IDE (using breakpoints against real cloud resources)
+		No Mocks!
+	Tests
+		Unit -> Run Locally
+		Integration -> Run Locally & On AWS. Majority of Tests
+		E2E -> Run only on AWS
+	Integration tests create test data, call Lambda handler without mocks, causing it to talk to real AWS resources
+	What if we had a sandbox environment in Snowflake and a team was using Spark? Could we do something similar, talking to their Sandbox environment from their local environment???
+	Stubber is a resource from botocore that allows mocking failures in AWS resources
+		Doing this as integration test allows you to only mock what you need
+	E2E tests should also include some unhappy paths (excplitly invalid authentication or authorization)
+	For Lambda functions, you can add additional parameters with defaults to do dependency injection
+	When receiving messages, it's useful to wrap model in a class that holds metadata such as source, timestamp, etc.
+	You can use pytest_socket to disable all network connections from tests, to make sure you've got reliable unit tests
+	To do E2E testing for async functions, force side effects you can monitor for.
+		You can have a step function that gets the result and writes it to a DynamoDB table you can modify
+		Make sure that the event metadata allows you to verify it is the result you're looking for.
+		Use request.node.name to get name of the current test, and use that as the source so it'll trace through
+	Powertools for AWS Lambda has a lot of libraries that can make Lambda jobs easier to write
+	Tuna helps visualize stack traces for import time increases, from the Python output
+	PySpy also does this for full executions
+	PyInstrument tells you how long a specific area of code takes
+	Source code and details on decisions made available here: https://github.com/ran-isenberg/serverless-python-demo
+	
