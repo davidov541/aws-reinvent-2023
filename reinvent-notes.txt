@@ -83,6 +83,7 @@ Pragmatic Python
 Expo
 	DBT
 		DBT Cloud adds a lot of stability and enforces the development process a bit better than DBT Core
+		Theres a book out there on how to use DBT I should read
 	Soda
 		Competitor to GE
 		Managed and OSS versions.
@@ -127,3 +128,7 @@ Aurora Limitless
 	There is some way to tag databases as sharded? Not clear on this
 	Shards can split if necessary automatically
 	Eventually, there will be a path to take existing tables and add them into sharding
+SageMaker
+	S3 -> AWS Glue Crawler -> AWS Glue Data Catalog -> Athena -> SageMaker
+	Data Wrangler or PyAthena to get data from Athena
+	
