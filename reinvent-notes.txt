@@ -115,4 +115,15 @@ AWS Amplify
 	AWS Secrets Manager can be pulled into the code as if they were an environment variable
 	Support for many front-ends, like React, Angular, native mobile front-ends, etc
 		Forms with script generator is only available for React
-	
+Aurora Limitless
+	Reference tables and sharded tables
+	Allows for forcing colocation of tables based on having the same keys (for joins)
+	Uses SET commands to control sharding and table type (to avoid changing syntax)
+	Internal sub-shards used to move data when a new shard is needed
+	You can have standard tables alongside sharded tables
+	Internal routers that can scale and shard computes, both of which can scale horizontally or vertically
+	Official recommendation is to use serverless unless you need write scalability since you are hitting the limits on writes
+	Separate endpoint for sharded tables, which can also be used for non-sharded tables
+	There is some way to tag databases as sharded? Not clear on this
+	Shards can split if necessary automatically
+	Eventually, there will be a path to take existing tables and add them into sharding
