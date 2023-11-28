@@ -91,4 +91,28 @@ Expo
 	Astronomer
 		14 day free trial now available
 AWS Amplify
+	Amplify consists of DataSync using GraphQL and Authentication (through Cognito, Auth0, and Okta)
+	Focuses on logic, not on infrastructure
+	Amplify Gen2 released in preview last week
+		Now built entirely on top of CDK
+		This allows you to drill down for customization if necessary
+		Completely done in TypeScript
+		Now able to use a local sandbox for testing
+		1:1 mapping between branches and shared environments
+		Allows for ephemeral environments for QA
+		Able to take a model and generate React code to do CRUD work on that model
+	Frontend has access to typed versions from the backend model
+	Steps from basic front-end to full application:
+		Use CLI via npm to create boilerplate code
+		amplify/auth contains authentication information (Cognito by default)
+		amplify/data contains the models for the backend
+			Models contain information about authorization and relationships between models
+		npx amplify sandbox command allows for creating sandbox environment to deploy to
+		amplify/backend.ts allows you to customize the resources that are being created using CDK
+			To do this, pull the necessary parts out of the resource struct created, and modify properties as necessary
+		Custom stacks can be created through a separate TS file and then hooked into the backend.ts file
+		npx generate forms creates ui-components directory based on the models for CRUD operations
+	AWS Secrets Manager can be pulled into the code as if they were an environment variable
+	Support for many front-ends, like React, Angular, native mobile front-ends, etc
+		Forms with script generator is only available for React
 	
