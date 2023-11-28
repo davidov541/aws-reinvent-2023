@@ -80,4 +80,15 @@ Pragmatic Python
 	PySpy also does this for full executions
 	PyInstrument tells you how long a specific area of code takes
 	Source code and details on decisions made available here: https://github.com/ran-isenberg/serverless-python-demo
+Expo
+	DBT
+		DBT Cloud adds a lot of stability and enforces the development process a bit better than DBT Core
+	Soda
+		Competitor to GE
+		Managed and OSS versions.
+		Often seen as simpler to use than GE
+		REST API can be used to trigger DQ checks in managed version
+	Astronomer
+		14 day free trial now available
+AWS Amplify
 	
