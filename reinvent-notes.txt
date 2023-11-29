@@ -175,3 +175,29 @@ Spark on EMR Serverless
 			Check that your Max concurrent vCPUs quota is big enough
 			spark.dynamicAllocation.maxExecutor can be used to cost control number of executors
 			spark.emr-serverless.executor.disk may need to be expanded for spilled data
+Self-Service Infrastructure
+    92% of companies use a platform team, but skill shortage is #1 blocker
+    Training and cross pollination with other users evangelizing is key
+    Challenges
+        Security needs vs self-service
+        User friction causes issues, including skill lack
+    Principles
+        It's a balancing act
+             Opinionated vs Free
+        Defining guardrails
+        Know your customer
+    Use private registry to codify best practices
+    Journey: Adopt -> Standardize -> Scale
+    Adopt doesn't use platform team
+    Scale moves into self service and maintenance
+    Terraform Cloud supports private registry and security policies built in
+    Security policies support Hashicorp Sentinel and Open Policy Agent (OPA)
+    Cloud also supports additional third party tasks for security and cost checking
+    Terraform 1.6 adds tests for individual modules
+    Terraform 1.5 also adds check block to define checks on consumers
+    Test actually runs plan or apply, depending on test
+    Plus tier Cloud customers have automatically generated tests to get started
+    Cloud has ability to execute custom modules with no code (platform team creates module, and then dev teams don't need to code to use them)
+    HCP Waypoint builds on this to create a "golden path" to creating applications.
+    AWS service catalog allows ability to create modules through Terraform without having the underlying access
+    
