@@ -148,3 +148,30 @@ FinOps
 		The Lambda function just checks the bill to a limit and notifies for approval or auto-approves
 		Usage can be specified manually in YAML file or it can read your AWS usage automatically on existing resources
 	Sample repo: github.com/igor-ivaniuk/codepipeline-terraform
+	Recommended to automatically generate YAML file on a regular schedule
+Spark on EMR Serverless
+	EMR Serverless is multi-AZ by default (traditional EMR is not)
+	New Features
+		Application capacity and job metrics in Cloudwatch
+		Job-level cost visibility
+		EMR Studio support
+		Secrets Manager integration
+	Switching to ARM64 (Graviton2 processors) gives 15% improvement in performance (from AWS)
+	You can use docker images for all worker nodes to add libraries or UDFs automatically
+	EMR 6.12 has new Spark optimizations on top of Apache Spark
+		1.4x faster than EMR 6.9 (from AWS)
+	Switching from Java 8 to Java 17 helps the runtime as well
+	EMR Serverless is cheaper and allows you to get your hands dirty. Glue adds an extra abstraction layer on top.
+		Focus for Glue is on the Visual ETL Tool
+	For EMR Serverless, if you're running 24/7, you'll need to create a second cluster to upgrade the versions/images
+	YARN queue management isn't currently supported in Serverless
+	GoDaddy Story
+		Current batch jobs are mostly (62%) short jobs, with a distinct schedule through the day
+		Compared EMR on EC2 vs EMR Serverless across many different production jobs
+		Saw 70% improvement moving from EMR on EC2 to EMR Serverless with Graviton2
+		Learnings
+			VPCs should cover all AZs to get DR
+			Make sure that your subnets have enough IP addresses 
+			Check that your Max concurrent vCPUs quota is big enough
+			spark.dynamicAllocation.maxExecutor can be used to cost control number of executors
+			spark.emr-serverless.executor.disk may need to be expanded for spilled data
