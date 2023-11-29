@@ -131,4 +131,20 @@ Aurora Limitless
 SageMaker
 	S3 -> AWS Glue Crawler -> AWS Glue Data Catalog -> Athena -> SageMaker
 	Data Wrangler or PyAthena to get data from Athena
-	
+FinOps
+	DevOps == Dev + Ops + QA
+	FinOps == Engineer + Business + Account/Finance/Buyer
+	Both are culture changes so everyone cares
+	Cyclical Stages: Inform -> Optimize -> Operate
+	"You build it, you run it" - DevOps
+	GitOps - Infrastructure is defined next to application code in a Git repository.
+		All is provisioned together
+	GitFinOps - Integrating FInOps into the deployment process
+		Recommends a step to determine expected cost for change before deployment
+	Use DynamoDB for TFLock
+	Cost is determined using SQS -> Lambda
+	They are using the tool InfraCost (https://www.infracost.io/)
+		It gives a nice itemized bill of the changes and how much they will cost
+		The Lambda function just checks the bill to a limit and notifies for approval or auto-approves
+		Usage can be specified manually in YAML file or it can read your AWS usage automatically on existing resources
+	Sample repo: github.com/igor-ivaniuk/codepipeline-terraform
