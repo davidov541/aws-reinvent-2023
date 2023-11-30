@@ -236,3 +236,16 @@ Athena Connections
     Uses Apache Arrow under the hood
     This is built in Lambda and run there
      Results are read-only and stored in AWS Glue Data Catalog
+Data Integration
+    Support for many data sources to pull in data from third party data sources.
+        Includes Snowflake
+    Redshift connector has been updated
+        Allows for push-down optimization
+    New native connector for AWS OpenSearch
+    These connectors work within the Glue visual ETL Tool
+    New transformations have been added to Glue Visual editor
+    There is now a "trusted adapter" for DBT that connects to AWS Glue for execution
+    AWS Glue now supports larger worker types (up to 32 vCPUs and 128 GB of memory)
+    AWS Glue now supports streaming in Visual ETL
+        It now supports autoscaling and a smaller instance type to save cost
+    
