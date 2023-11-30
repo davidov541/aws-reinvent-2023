@@ -209,3 +209,18 @@ Microservices
       This service creates the networking and routing to make this work. 
       Assumes the monolith is already in AWS
 S3 Security
+    For cross account access, both accounts need the policy.
+    Using organizations for the target account can allow any roles in the organization access.
+    S3 Access Points can be used if the bucket policy gets too big
+        Can be created in a separate account if needed
+    Suggestion not to use AWS managed KMS key, instead use default encryption
+        Use CMK if extra security necessary
+    S3 access groups allow for granting access to AD groups
+    Recommendation to use CloudTrail over access logs for S3
+    Use IAM policies to specify nonstandard callers to deny
+        Called setting up a data perimeter. There is a white paper on this.
+        Look at the organization it's coming from or what network the request is coming from.
+    Ability now to set up double layer of encryption on data at rest If needed
+    Recommended to use bucket keys if using KMS to reduce KMS request costs
+    Should not use ACLs anymore. can use storage lens and cloudtrail to find any uses
+    IAM Access Analyzer can be used for static analysis of permissions on bucket
