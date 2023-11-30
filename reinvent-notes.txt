@@ -200,4 +200,12 @@ Self-Service Infrastructure
     Cloud has ability to execute custom modules with no code (platform team creates module, and then dev teams don't need to code to use them)
     HCP Waypoint builds on this to create a "golden path" to creating applications.
     AWS service catalog allows ability to create modules through Terraform without having the underlying access
-    
+Microservices
+   Strangler Fig Pattern
+      To convert a monolith to micrservices, take new features and implement as microservices.
+      Eventually you'll be able to refactor the monolith as more work is pulled out.
+      AWS suggests an account for one or a few microservices
+   Use AWS service which can automate the common infrastructure for this pattern when dealing with a web service
+      This service creates the networking and routing to make this work. 
+      Assumes the monolith is already in AWS
+S3 Security
