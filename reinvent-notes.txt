@@ -224,3 +224,8 @@ S3 Security
     Recommended to use bucket keys if using KMS to reduce KMS request costs
     Should not use ACLs anymore. can use storage lens and cloudtrail to find any uses
     IAM Access Analyzer can be used for static analysis of permissions on bucket
+Athena Connections
+    Athena can connect to various data sources and run SQL queries on them (Ala Presto)
+    You can also create custom connectors for things like REST API calls
+        These connectors are written in Java
+    
