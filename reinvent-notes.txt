@@ -228,4 +228,7 @@ Athena Connections
     Athena can connect to various data sources and run SQL queries on them (Ala Presto)
     You can also create custom connectors for things like REST API calls
         These connectors are written in Java
+    Sample custom connector available here: https://github.com/awslabs/aws-athena-query-federation
+    There are different functions that need to be implemented for this such as getting metadata, listing tables, getting data, etc.
+    Allows for splits, for data split across multiple files or APIs that have pagination.
     
