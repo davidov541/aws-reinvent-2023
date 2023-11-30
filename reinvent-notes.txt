@@ -234,4 +234,5 @@ Athena Connections
      This API also allows for massaging of columns and data as part of the data processing class.
      A separate class can be written to create UDFs that can be used on the data.
     Uses Apache Arrow under the hood
+    This is built in Lambda and run there
     
