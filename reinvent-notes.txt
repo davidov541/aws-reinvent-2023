@@ -255,3 +255,10 @@ Data Integration
         New ability to use ML to detect anomalies in the data
             This has to be configured with which metrics (like row count and column length) to do anomaly detection on.
              This does allow for seasonality
+    MWAA now supports 2.7.2 which includes deferrable operators
+        Also uses secrets caching for cost saving
+        Also includes support for openlineage
+    MWAA now supports shared VPCs
+    AWS Glue integrates with git now better, for most (but not Azure DevOps) git providers
+    Glue now exposes the Spark History Server UI for debugging
+    
