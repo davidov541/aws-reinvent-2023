@@ -248,4 +248,10 @@ Data Integration
     AWS Glue now supports larger worker types (up to 32 vCPUs and 128 GB of memory)
     AWS Glue now supports streaming in Visual ETL
         It now supports autoscaling and a smaller instance type to save cost
-    
+    Glue has built in sensitive data detection
+        Recently added ability to have fine grained actions configured based on the type of data found
+    Glue DQ supports DQ in transit and at rest.
+        Also gives rule suggestions
+        New ability to use ML to detect anomalies in the data
+            This has to be configured with which metrics (like row count and column length) to do anomaly detection on.
+             This does allow for seasonality
