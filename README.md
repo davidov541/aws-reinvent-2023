@@ -7,14 +7,14 @@
 	- Best Practices
 	- Sample Test Code
 - Internal Custom Terraform Providers
-	- Example: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest
+	- [Example](https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest)
 	- Hooks into GitHub/Azure DevOps repo? Needs more investigation
-	- This method also appears to have some simplified ways of setting up resources: https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest
+	- This [method](https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest) also appears to have some simplified ways of setting up resources.
 - Using AWS Cloud9 (or other Cloud IDE) may help solve some hesitancy to get into source code
 - There are some tools like KubeCost and Grafana that are easy to set up to monitor EKS clusters.
 	- A good amount of configuration required, but using boilerplate may work here
 - There is a gitSync tag in the airflow YAML file which allows for synchronization automatically between a git repo and Airflow. This can be used to deploy DAGs to Airflow, but would it work for multiple teams to one instance?
-	- Sounds like no. The answer they propose is a root repo with submodules that pull from other repos: https://github.com/apache/airflow/discussions/19381
+	- Sounds like no. The [answer](https://github.com/apache/airflow/discussions/19381) they propose is a root repo with submodules that pull from other repos. 
 	- Another answer in there is to set up S3 sync and then just have steps to upload the DAGs into a common S3 bucket for use
 ## United Airlines with DocumentDB
 - Support for Elastic Clusters (PaaS instead of IaaS)
@@ -80,7 +80,7 @@
 - Tuna helps visualize stack traces for import time increases, from the Python output
 - PySpy also does this for full executions
 - PyInstrument tells you how long a specific area of code takes
-- Source code and details on decisions made available here: https://github.com/ran-isenberg/serverless-python-demo
+- Source code and details on decisions made available [here](https://github.com/ran-isenberg/serverless-python-demo)
 ## Expo
 ### DBT
 - DBT Cloud adds a lot of stability and enforces the development process a bit better than DBT Core
@@ -144,7 +144,7 @@
 	- Recommends a step to determine expected cost for change before deployment
 - Use DynamoDB for TFLock
 - Cost is determined using SQS -> Lambda
-- They are using the tool InfraCost (https://www.infracost.io/)
+- They are using the tool [InfraCost](https://www.infracost.io/)
 	- It gives a nice itemized bill of the changes and how much they will cost
 	- The Lambda function just checks the bill to a limit and notifies for approval or auto-approves
 	- Usage can be specified manually in YAML file or it can read your AWS usage automatically on existing resources
@@ -262,3 +262,25 @@
 - MWAA now supports shared VPCs
 - AWS Glue integrates with git now better, for most (but not Azure DevOps) git providers
 - Glue now exposes the Spark History Server UI for debugging
+## Other Notes
+- An option for sandbox environments is to have a template Terraform file to pull from.
+  - [Example](www.github.com/aws-samples/eks-saas-gitops)
+- [Terraform Workspaces](https://spacelift.io/blog/terraform-workspaces) creates separate TFState files next to the others
+  - Seems to be for test environments before deploying.
+  - Not sure I see how this would be useful.
+- [Terraform Stacks](https://www.hashicorp.com/blog/terraform-stacks-explained) looks promising for handling things like having to have multiple deployments
+  - Currently in private preview only for Terraform Cloud
+  - Will need to watch what else comes out here for Terraform OSS.
+# Big Takeaways
+- Look at using Soda instead of GE for DQ
+- Double-check if we can now use MWAA since shared VPNs are support.
+- Investigate options for sandbox deployments
+- Data on EKS for Spark jobs running on K8S
+- Get book for DBT and research it more
+- Meet with Astronomer to get a better feel for their product
+- Look at applying InfraCost as part of CI/CD
+- Look at using AWS Service Catalog for self-serve deployments for things like sandboxes
+- Double-check if Bucket Keys are enabled on S3
+- Double-check we are not using ACLs in S3
+- Look into adding check and test blocks to Terraform
+- 
