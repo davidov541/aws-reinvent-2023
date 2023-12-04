@@ -201,6 +201,7 @@
 - Cloud has ability to execute custom modules with no code (platform team creates module, and then dev teams don't need to code to use them)
 - HCP Waypoint builds on this to create a "golden path" to creating applications.
 - AWS service catalog allows ability to create modules through Terraform without having the underlying access
+  - This only works with the AWS Provider, so no chance to use this with third-party tools like Snowflake.
 ## Microservices
 - Strangler Fig Pattern
     - To convert a monolith to micrservices, take new features and implement as microservices.
@@ -275,12 +276,11 @@
 - Look at using Soda instead of GE for DQ
 - Double-check if we can now use MWAA since shared VPNs are support.
 - Investigate options for sandbox deployments
-- Data on EKS for Spark jobs running on K8S
-- Get book for DBT and research it more
 - Meet with Astronomer to get a better feel for their product
 - Look at applying InfraCost as part of CI/CD
-- Look at using AWS Service Catalog for self-serve deployments for things like sandboxes
 - Double-check if Bucket Keys are enabled on S3
 - Double-check we are not using ACLs in S3
 - Look into adding check and test blocks to Terraform
-- 
+- Bench Projects
+  - Data on EKS for Spark jobs running on K8S
+  - Get book for DBT and research it more
