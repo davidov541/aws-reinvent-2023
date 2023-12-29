@@ -265,7 +265,7 @@
 - Glue now exposes the Spark History Server UI for debugging
 ## Other Notes
 - An option for sandbox environments is to have a template Terraform file to pull from.
-  - [Example](www.github.com/aws-samples/eks-saas-gitops)
+  - [Example](https://www.github.com/aws-samples/eks-saas-gitops)
 - [Terraform Workspaces](https://spacelift.io/blog/terraform-workspaces) creates separate TFState files next to the others
   - Seems to be for test environments before deploying.
   - Not sure I see how this would be useful.
